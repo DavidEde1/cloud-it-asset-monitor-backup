@@ -45,6 +45,22 @@ HTML = """
             max-width: 1200px;
             margin: 30px auto 16px;
         }
+        .footer-note-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-note-img {
+            width: 22px;
+            height: 22px;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+            margin-left: -32px;
+        }
         .footer-note {
             text-align: center;
             font-style: italic;
@@ -87,7 +103,10 @@ HTML = """
     </div>
 
     <hr class="footer-line">
-    <p class="footer-note">… Created by David Ede Ighoteguonor (a Computer Engineering Student FUPRE)</p>
+    <div class="footer-note-wrap">
+        <img class="footer-note-img" src="EDE.png" alt="David Footer icon">
+        <p class="footer-note"> ...Created by David Ede Ighoteguonor (a Computer Engineering Student FUPRE)</p>
+    </div>
 </body>
 </html>
 """
@@ -98,7 +117,7 @@ def dashboard():
         HTML,
         computer=platform.node(),
         system=f"{platform.system()} {platform.release()}",
-        cpu=psutil.cpu_percent(intervsal=1),
+        cpu=psutil.cpu_percent(interval=1),
         memory=psutil.virtual_memory().percent,
         disk=psutil.disk_usage("C:\\").percent,
         updated=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
